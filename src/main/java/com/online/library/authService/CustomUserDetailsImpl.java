@@ -25,11 +25,11 @@ public class CustomUserDetailsImpl implements UserDetailsService {
     @Override
     public UserDetails loadUserByUsername(String email) throws UsernameNotFoundException {
         User user = userRepository.findByEmail(email)
-                .orElseThrow(() -> new UserNotFoundException("User with email: {} is not found" + email));
+                .orElseThrow(() -> new UserNotFoundException("User with email: {} is not found " + email));
 
         Role role = user.getRole() != null ? user.getRole() : Role.READER;
         List<GrantedAuthority> authorities = new ArrayList<>();
-        authorities.add(new SimpleGrantedAuthority(role.toString()));
+        authorities.add(new SimpleGrantedAuthority("ROLE_" + role.name()));
         return new UserDetails() {
             @Override
             public Collection<? extends GrantedAuthority> getAuthorities() {

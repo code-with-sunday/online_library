@@ -7,7 +7,7 @@ import lombok.*;
 @Data
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public class AuthResponse {
-    private String Title;
     private String message;
+    private String status;
     private Role role;
 }
