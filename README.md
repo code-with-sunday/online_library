@@ -43,32 +43,36 @@ An enterprise-level **Online Library Management System** built with Spring Boot.
 ## Request Examples
 
 ### 1. Sign Up
-**Endpoint:** `POST /auth/sign-up`
-[![Online Library][POSTMAN_VIEW]](sign_up_request.png)
+![Online Library](sign_up_request.png)
 
-[![Online Library][POSTMAN_VIEW]](sign_up_DB.png)
+![Online Library](sign_up_DB.png)
 
-[![Online Library][POSTMAN_VIEW]](sign_up_logs.png)
+![Online Library](sign_up_logs.png)
 
-[![Online Library][POSTMAN_VIEW]](successful_login.png)
+### 2. Login
 
-[![Online Library][POSTMAN_VIEW]](search_book.png)
+![Online Library](successful_login.png)
 
-[![Online Library][POSTMAN_VIEW]](Junit_test_login.png)
+### 3. Search
+![Online Library](search_book.png)
 
-[![Online Library][POSTMAN_VIEW]](Junit_test_signup.png)
+### 4. login Unit Test
 
-[![Online Library][POSTMAN_VIEW]](getAll_book.png)
+![Online Library](Junit_test_login.png)
 
-[![Online Library][POSTMAN_VIEW]](failed_login.png)
+![Online Library](Junit_test_signup.png)
 
-[![Online Library][POSTMAN_VIEW]](create_book.png)
+### 5. Get All_book
 
+![Online Library](getAll_book.png)
 
+### 6. Sample of failed Login/Failure response
 
+![Online Library](failed_login.png)
 
+### 7. Create Book
 
-
+![Online Library](create_book.png)
 
 
 
