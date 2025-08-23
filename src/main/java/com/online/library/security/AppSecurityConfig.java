@@ -27,7 +27,7 @@ public class AppSecurityConfig {
         http.sessionManagement(management -> management.sessionCreationPolicy(SessionCreationPolicy.STATELESS))
                 .authorizeHttpRequests(auth -> auth
                         .requestMatchers("/librarian/**").hasRole("LIBRARIAN")
-                        .requestMatchers("/reader/**").hasRole("READER")
+                        .requestMatchers("/reader/**").permitAll()
                         .requestMatchers(HttpMethod.POST, "/auth/**").permitAll()
                         .requestMatchers("/app/**").authenticated()
                         .requestMatchers("/swagger-ui/**", "/v3/api-docs/**").permitAll()

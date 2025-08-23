@@ -16,13 +16,6 @@ public class UserService {
 
     private final UserRepository userRepository;
 
-//    public UserResponse createUser(String email) {
-//        User user = userRepository.findByEmail(email)
-//                .orElseThrow(() -> new UserAlreadyExistException("User with email: {} already exists" + email));
-//
-//
-//    }
-
     public UserResponse saveOrUpdate(UserRequest request) {
         User user = userRepository.findByEmail(request.getEmail())
                 .orElseThrow(() -> new UserAlreadyExistException("User with email: {} already exists" + request.getEmail()));

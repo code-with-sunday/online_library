@@ -84,7 +84,7 @@ public class AuthUserDeatilsImpl implements AuthUserDetails{
         String jwt = jwtProvider.generateToken(authentication);
         log.info("Generating token for authenticated user: {} {}", username, password );
         AuthResponse authResponse = new AuthResponse();
-        authResponse.setStatus(HttpStatus.CREATED.toString());
+        authResponse.setStatus(HttpStatus.OK.toString());
         authResponse.setMessage(jwt);
         authResponse.setRole(role);
         log.info("User Authenticated with response sent: {}", authResponse );
