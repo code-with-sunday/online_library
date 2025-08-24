@@ -1,7 +1,9 @@
 package com.online.library.controller;
 
 import com.online.library.dto.response.BookResponse;
+import com.online.library.dto.response.CheckoutResponse;
 import com.online.library.service.BookService;
+import com.online.library.service.CheckoutService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
@@ -9,10 +11,7 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.data.domain.Sort;
 import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.time.LocalDate;
 import java.util.List;
@@ -23,6 +22,7 @@ import java.util.List;
 public class ReaderController {
 
     private final BookService bookService;
+    private final CheckoutService checkoutService;
 
     @GetMapping("/book/search")
     public ResponseEntity<Page<BookResponse>> searchBooks(
@@ -49,6 +49,18 @@ public class ReaderController {
     @GetMapping("/book")
     public ResponseEntity<List<BookResponse>> getAllBooks() {
         List<BookResponse> response = bookService.getAllBooks();
+        return ResponseEntity.ok(response);
+    }
+
+    @PostMapping("/checkout/{bookId}")
+    public ResponseEntity<CheckoutResponse> checkout(@PathVariable Long bookId) {
+        CheckoutResponse response = checkoutService.checkout(bookId);
+        return ResponseEntity.ok(response);
+    }
+
+    @PostMapping("/checkin/{checkoutId}")
+    public ResponseEntity<CheckoutResponse> checkin(@PathVariable Long checkoutId) {
+        CheckoutResponse response = checkoutService.checkin(checkoutId);
         return ResponseEntity.ok(response);
     }
 
