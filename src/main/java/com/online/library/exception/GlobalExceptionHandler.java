@@ -24,6 +24,8 @@ public class GlobalExceptionHandler {
         EXCEPTION_STATUS_MAP.put(UserAlreadyExistException.class, HttpStatus.CONFLICT);
         EXCEPTION_STATUS_MAP.put(IllegalArgumentException.class, HttpStatus.BAD_REQUEST);
         EXCEPTION_STATUS_MAP.put(BookAlreadyExistException.class, HttpStatus.CONFLICT);
+        EXCEPTION_STATUS_MAP.put(BookNotFoundException.class, HttpStatus.NOT_FOUND);
+        EXCEPTION_STATUS_MAP.put(GeneralArgumentException.class, HttpStatus.BAD_REQUEST);
     }
 
     @ExceptionHandler(RuntimeException.class)

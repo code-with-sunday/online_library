@@ -26,18 +26,19 @@ An enterprise-level **Online Library Management System** built with Spring Boot.
 - JWT Authentication for secure endpoints
 
 ---
-
 ## Endpoints
 
 | Method | Endpoint | Description | Role |
-|--------|---------|-------------|------|
+|--------|----------|-------------|------|
 | POST   | `/auth/sign-up` | Register a new user | Public |
 | POST   | `/auth/login`   | Authenticate user and receive JWT | Public |
 | POST   | `/library/book` | Add a new book | LIBRARIAN |
 | PUT    | `/library/book` | Update existing book or create if missing | LIBRARIAN |
 | GET    | `/reader/book` | Get all books | READER / LIBRARIAN |
 | GET    | `/reader/book/search` | Search books with filters | READER / LIBRARIAN |
-
+| POST   | `/library/checkout/update` | Update or create a checkout record | LIBRARIAN |
+| POST   | `/reader/checkout/{bookId}` | Checkout a book | READER |
+| POST   | `/reader/checkin/{checkoutId}` | Checkin a book | READER |
 ---
 
 ## Request Examples
